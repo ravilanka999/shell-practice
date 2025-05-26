@@ -10,3 +10,7 @@ echo "which user is running the script $USER"
 echo "Present working directory $PWd"
 echo "the script that is being executed is $0"
 echo "PID of current script $$"
+
+sleep &
+
+echo "PID of the last command running in background $!"
