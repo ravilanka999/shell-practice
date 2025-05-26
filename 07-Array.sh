@@ -11,6 +11,6 @@ echo "Present working directory $PWd"
 echo "the script that is being executed is $0"
 echo "PID of current script $$"
 
-sleep &
+sleep 10s &
 
 echo "PID of the last command running in background $!"
