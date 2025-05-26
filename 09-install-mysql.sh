@@ -2,4 +2,10 @@
 
 USERID=$(id -u)
 
-echo "userid is $USERID"
+if [ $USERID -ne 0 ]
+then 
+    echo "ERROR:: Please run this script using root access"
+else 
+    echo " You are running with root access" 
+fi
+   
