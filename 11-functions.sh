@@ -39,3 +39,19 @@ then
 else 
      echo "JAVA is already Installed...Nothing to do"
 fi
+
+dnf list installed nginx
+if [ $? -ne 0 ]
+then 
+    echo "NGINX is not installed... Installing now"
+    dnf install nginx -y
+    if [ $? -eq 0 ]
+    then 
+        echo "Installing NGINX is ..... SUCCESS"
+    else 
+         echo " Installing NGINX is .... FAILURE"
+         exit 1
+    fi
+else 
+     echo "NGINX is already Installed...Nothing to do"
+fi
