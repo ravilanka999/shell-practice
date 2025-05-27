@@ -49,5 +49,5 @@ then
     dnf install java -y
     VALIDATE $? "JAVA"
 else 
-     echo -e "$Y JAVA is already Installed...Nothing to do | tee -a $LOG_FILE
+     echo -e "$Y JAVA is already Installed...Nothing to do" | tee -a $LOG_FILE
 fi
