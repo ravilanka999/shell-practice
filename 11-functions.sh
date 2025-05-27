@@ -28,7 +28,7 @@ dnf list installed java
 if [ $? -ne 0 ]
 then 
     echo "JAVA is not installed... Installing now"
-    dnf install JAVA -y
+    dnf install java -y
     if [ $? -eq 0 ]
     then 
         echo "Installing JAVA is ..... SUCCESS"
