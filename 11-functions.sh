@@ -7,18 +7,23 @@ else
     echo " You are running with root access" 
 fi
 
+
+VALIDATE(){
+    if [ $1 -eq 0 ]
+    then 
+        echo "Installing $2 is ..... SUCCESS"
+    else 
+         echo " Installing $2 is .... FAILURE"
+         exit 1
+    fi
+}
+
 dnf list installed mysql
 if [ $? -ne 0 ]
 then 
     echo "MYSQL is not installed... Installing now"
     dnf install mysql -y
-    if [ $? -eq 0 ]
-    then 
-        echo "Installing MYSQL is ..... SUCCESS"
-    else 
-         echo " Installing MYSQL is .... FAILURE"
-         exit 1
-    fi
+    VALIDATE $? "MYSQL"
 else 
      echo "MYSQL is already Installed...Nothing to do"
 fi
@@ -29,13 +34,7 @@ if [ $? -ne 0 ]
 then 
     echo "JAVA is not installed... Installing now"
     dnf install java -y
-    if [ $? -eq 0 ]
-    then 
-        echo "Installing JAVA is ..... SUCCESS"
-    else 
-         echo " Installing JAVA is .... FAILURE"
-         exit 1
-    fi
+    VALIDATE $? "JAVA"
 else 
      echo "JAVA is already Installed...Nothing to do"
 fi
@@ -45,13 +44,7 @@ if [ $? -ne 0 ]
 then 
     echo "NGINX is not installed... Installing now"
     dnf install nginx -y
-    if [ $? -eq 0 ]
-    then 
-        echo "Installing NGINX is ..... SUCCESS"
-    else 
-         echo " Installing NGINX is .... FAILURE"
-         exit 1
-    fi
+    VALIDATE $? "NGINX"
 else 
      echo "NGINX is already Installed...Nothing to do"
 fi
